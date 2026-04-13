@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Skyline IT & Cloud — Home</title>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+.hero {
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  background: var(--pu50);
+  position: relative;
+  overflow: hidden;
+  padding: 80px 48px;
+}
+
+.hero-bg-ring {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 520px;
+  height: 520px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--pu100);
+  color: var(--pu800);
+  font-size: 12px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 28px;
+  font-weight: 500;
+}
+
+.hero-badge-dot {
+  width: 6px; height: 6px;
+  background: var(--pu600);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+.hero h1 {
+  font-size: 58px;
+  font-weight: 800;
+  color: var(--pu900);
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin-bottom: 22px;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--pu600);
+}
+
+.hero p {
+  font-size: 17px;
+  color: var(--pu800);
+  line-height: 1.8;
+  margin-bottom: 36px;
+  max-width: 440px;
+}
+
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.trust-bar {
+  padding: 24px 48px;
+  border-top: 1px solid var(--pu100);
+  border-bottom: 1px solid var(--pu100);
+  background: white;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  overflow: hidden;
+}
+
+.trust-item {
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.trust-dot { width: 6px; height: 6px; background: var(--pu400); border-radius: 50%; flex-shrink: 0; }
+
+.home-services { padding: 80px 48px; }
+.home-services-inner { max-width: 1100px; margin: 0 auto; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.svc-card {
+  border: 1px solid var(--pu100);
+  border-radius: 14px;
+  padding: 28px 24px;
+  transition: border-color 0.2s, transform 0.2s;
+  background: white;
+}
+
+.svc-card:hover { border-color: var(--pu400); transform: translateY(-3px); }
+
+.svc-icon {
+  width: 44px; height: 44px;
+  background: var(--pu50);
+  border-radius: 10px;
+  border: 1px solid var(--pu100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.svc-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--pu900);
+  margin-bottom: 10px;
+}
+
+.svc-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+.svc-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--pu600);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.svc-link:hover { color: var(--pu800); }
+
+.cta-strip {
+  background: var(--pu900);
+  padding: 72px 48px;
+  text-align: center;
+}
+
+.cta-strip h2 {
+  font-size: 36px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.5px;
+  margin-bottom: 14px;
+}
+
+.cta-strip p { font-size: 16px; color: var(--pu200); margin-bottom: 32px; }
+
+.cta-strip .btn-primary { background: var(--pu400); font-size: 15px; padding: 15px 36px; }
+.cta-strip .btn-primary:hover { background: var(--pu200); color: var(--pu900); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-icon">
+      <svg width="20" height="20" viewBox="0 0 20 20"><rect x="8.5" y="11" width="3" height="7" rx="1" fill="#534AB7"/><rect x="7" y="8" width="6" height="4" rx="1" fill="#7F77DD"/><rect x="9" y="3" width="2" height="6" rx="1" fill="#AFA9EC"/><path d="M6 6 Q3 5 6 4" fill="none" stroke="#7F77DD" stroke-width="1.2" stroke-linecap="round"/><path d="M14 6 Q17 5 14 4" fill="none" stroke="#7F77DD" stroke-width="1.2" stroke-linecap="round"/></svg>
+    </div>
+    <div>
+      <div class="logo-text">Skyline IT & Cloud</div>
+      <div class="logo-tagline">WEB · APPS · E-COMMERCE</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Get a quote</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge fade-up">
+      <span class="hero-badge-dot"></span>
+      Founded 2025 · Rosebank College, Durban
+    </div>
+    <h1 class="fade-up delay-1">Your digital<br/><em>presence</em>,<br/>elevated.</h1>
+    <p class="fade-up delay-2">We build websites, launch e-commerce stores, and develop apps — for South African businesses ready to grow in the digital era.</p>
+    <div class="hero-btns fade-up delay-3">
+      <a href="pricing.html" class="btn-primary">View packages</a>
+      <a href="services.html" class="btn-outline">Our services</a>
+    </div>
+  </div>
+
+  <svg class="hero-bg-ring" viewBox="0 0 520 520" fill="none">
+    <circle cx="260" cy="260" r="100" fill="none" stroke="#534AB7" stroke-width="3" opacity="0.2"/>
+    <circle cx="260" cy="260" r="160" fill="none" stroke="#534AB7" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.15"/>
+    <circle cx="260" cy="260" r="220" fill="none" stroke="#534AB7" stroke-width="1" stroke-dasharray="4 6" opacity="0.1"/>
+    <rect x="244" y="140" width="32" height="120" rx="6" fill="#534AB7" opacity="0.25"/>
+    <rect x="232" y="200" width="56" height="95" rx="6" fill="#7F77DD" opacity="0.3"/>
+    <rect x="250" y="108" width="20" height="40" rx="4" fill="#AFA9EC" opacity="0.4"/>
+    <path d="M220 175 Q190 160 220 145" fill="none" stroke="#7F77DD" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+    <path d="M205 185 Q165 160 205 135" fill="none" stroke="#AFA9EC" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+    <path d="M300 175 Q330 160 300 145" fill="none" stroke="#7F77DD" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+    <path d="M315 185 Q355 160 315 135" fill="none" stroke="#AFA9EC" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+  </svg>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-dot"></span>Website Design</div>
+  <div class="trust-item"><span class="trust-dot"></span>E-Commerce Stores</div>
+  <div class="trust-item"><span class="trust-dot"></span>Mobile App Development</div>
+  <div class="trust-item"><span class="trust-dot"></span>SEO & Brand Promotion</div>
+  <div class="trust-item"><span class="trust-dot"></span>Cloud Hosting</div>
+  <div class="trust-item"><span class="trust-dot"></span>Social Media Management</div>
+</div>
+
+<div class="home-services">
+  <div class="home-services-inner">
+    <div class="section-label">What we offer</div>
+    <h2 style="font-size:32px;font-weight:800;color:var(--pu900);letter-spacing:-0.5px;margin-bottom:10px">Services built for modern business</h2>
+    <p style="font-size:15px;color:var(--text-muted);line-height:1.75;margin-bottom:0">From your first website to a full digital ecosystem — we handle it all.</p>
+
+    <div class="services-grid">
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22"><rect x="2" y="4" width="18" height="13" rx="2" fill="none" stroke="#534AB7" stroke-width="1.5"/><line x1="7" y1="20" x2="15" y2="20" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round"/><line x1="11" y1="17" x2="11" y2="20" stroke="#534AB7" stroke-width="1.5"/></svg>
+        </div>
+        <h3>Website Design & Development</h3>
+        <p>Custom, responsive websites that convert visitors into customers across every device.</p>
+        <a href="services.html" class="svc-link">Learn more →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22"><rect x="3" y="3" width="16" height="16" rx="2" fill="none" stroke="#534AB7" stroke-width="1.5"/><path d="M7 11h8M7 7h4M7 15h6" stroke="#534AB7" stroke-width="1.2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>E-Commerce Stores</h3>
+        <p>Full-featured online shops with payment integration, product management, and mobile checkout.</p>
+        <a href="services.html" class="svc-link">Learn more →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22"><rect x="6" y="2" width="10" height="18" rx="2" fill="none" stroke="#534AB7" stroke-width="1.5"/><circle cx="11" cy="17" r="1" fill="#534AB7"/></svg>
+        </div>
+        <h3>App Development</h3>
+        <p>iOS and Android apps designed from scratch — intuitive, fast, and built to scale.</p>
+        <a href="services.html" class="svc-link">Learn more →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22"><circle cx="11" cy="11" r="8" fill="none" stroke="#534AB7" stroke-width="1.5"/><path d="M8 11l2 2 4-4" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Brand Promotion & SEO</h3>
+        <p>Get found online. We optimise your digital footprint and grow your audience organically.</p>
+        <a href="services.html" class="svc-link">Learn more →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22"><path d="M3 17 L3 7 L11 3 L19 7 L19 17 L11 21 Z" fill="none" stroke="#534AB7" stroke-width="1.5" stroke-linejoin="round"/><line x1="11" y1="3" x2="11" y2="21" stroke="#534AB7" stroke-width="1" stroke-dasharray="2 2"/></svg>
+        </div>
+        <h3>Cloud Hosting & Setup</h3>
+        <p>Reliable, fast cloud infrastructure — managed for you, no technical knowledge needed.</p>
+        <a href="services.html" class="svc-link">Learn more →</a>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22"><circle cx="5" cy="11" r="2.5" fill="none" stroke="#534AB7" stroke-width="1.5"/><circle cx="17" cy="5" r="2.5" fill="none" stroke="#534AB7" stroke-width="1.5"/><circle cx="17" cy="17" r="2.5" fill="none" stroke="#534AB7" stroke-width="1.5"/><line x1="7.5" y1="10" x2="14.5" y2="6.5" stroke="#534AB7" stroke-width="1"/><line x1="7.5" y1="12" x2="14.5" y2="15.5" stroke="#534AB7" stroke-width="1"/></svg>
+        </div>
+        <h3>Social Media & Content</h3>
+        <p>Strategic content creation and social media management to keep your brand active.</p>
+        <a href="services.html" class="svc-link">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-strip">
+  <h2>Ready to go digital?</h2>
+  <p>Get a free custom quote within 24 hours — no strings attached.</p>
+  <a href="contact.html" class="btn-primary">Start your project</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20"><rect x="8.5" y="11" width="3" height="7" rx="1" fill="#534AB7"/><rect x="7" y="8" width="6" height="4" rx="1" fill="#7F77DD"/><rect x="9" y="3" width="2" height="6" rx="1" fill="#AFA9EC"/></svg>
+        </div>
+        <div>
+          <div class="logo-text">Skyline IT & Cloud</div>
+          <div class="logo-tagline">WEB · APPS · E-COMMERCE</div>
+        </div>
+      </div>
+      <p>Founded in 2025 by a Rosebank College IT in Business Systems student. Affordable digital solutions for every South African business.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html">Website Design</a></li>
+        <li><a href="services.html">E-Commerce</a></li>
+        <li><a href="services.html">App Development</a></li>
+        <li><a href="services.html">SEO & Promotion</a></li>
+        <li><a href="services.html">Cloud Hosting</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="contact.html">Get a quote</a></li>
+        <li><a href="mailto:skylineitcloud@gmail.com">skylineitcloud@gmail.com</a></li>
+        <li><a href="#">Durban, SA</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Skyline IT & Cloud. Founded at Rosebank College, Durban.</p>
+    <p>IT in Business Systems · Serving South Africa & beyond</p>
+  </div>
+</footer>
+<!-- Terms & Conditions Popup -->
+<div id="tcPopup" style="display: none;">
+    <div class="tc-modal-overlay">
+        <div class="tc-modal-container">
+            <div class="tc-modal-header">
+                <div class="tc-modal-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#534AB7" stroke-width="1.8">
+                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke-linecap="round"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                </div>
+                <h3>Welcome to Skyline IT & Cloud</h3>
+            </div>
+            <div class="tc-modal-body">
+                <p>Please review and accept our Terms & Conditions to continue.</p>
+                <div class="tc-terms-scroll">
+                    <h4>📋 Terms of Service</h4>
+                    <p>By using our services, you agree to the following terms. Skyline IT & Cloud provides website design, e-commerce development, app development, SEO, and cloud hosting services.</p>
+                    
+                    <h4>💰 Payment Terms</h4>
+                    <p>All projects require a 50% deposit before work begins. The remaining 50% is due upon completion. Monthly services require payment at the start of each month.</p>
+                    
+                    <h4>🔄 Refund Policy</h4>
+                    <p>Deposits are non-refundable once work has commenced. If we fail to deliver as agreed, a full refund of deposit will be issued.</p>
+                    
+                    <h4>📄 Intellectual Property</h4>
+                    <p>Upon full payment, you own all rights to the delivered work. We reserve the right to display the work in our portfolio.</p>
+                    
+                    <h4>⚠️ Limitation of Liability</h4>
+                    <p>Skyline IT & Cloud is not liable for indirect damages or third-party claims. Our total liability is limited to the amount paid for the service.</p>
+                    
+                    <h4>🔒 Privacy Policy</h4>
+                    <p>We collect only necessary information to provide our services. Your data is never sold to third parties. We use SSL encryption to protect your information.</p>
+                    
+                    <h4>⚖️ Governing Law</h4>
+                    <p>These terms are governed by the laws of South Africa. Disputes will be resolved in Durban, South Africa.</p>
+                </div>
+                <label class="tc-checkbox-container">
+					<input type="checkbox" id="tcAgreeCheckbox">
+					<span>I have read and agree to the <a href="terms.html" id="tcTermsLink">Terms & Conditions</a> and <a href="privacy.html" id="tcPrivacyLink">Privacy Policy</a></span>
+				</label>
+            </div>
+            <div class="tc-modal-buttons">
+                <button class="tc-btn-outline" id="tcDeclineBtn">Decline</button>
+                <button class="tc-btn-primary" id="tcAcceptBtn" disabled>Accept & Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    // Check if user already accepted
+    if (!localStorage.getItem('skyline_terms_accepted')) {
+        // Show popup after 0.5 seconds
+        setTimeout(function() {
+            var popup = document.getElementById('tcPopup');
+            if (popup) {
+                popup.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }, 500);
+    }
+    
+    // Get elements
+    var checkbox = document.getElementById('tcAgreeCheckbox');
+    var acceptBtn = document.getElementById('tcAcceptBtn');
+    var declineBtn = document.getElementById('tcDeclineBtn');
+    var popup = document.getElementById('tcPopup');
+    
+    // Enable accept button when checkbox is checked
+    if (checkbox) {
+        checkbox.addEventListener('change', function() {
+            if (acceptBtn) {
+                acceptBtn.disabled = !this.checked;
+            }
+        });
+    }
+    
+    // Accept button click
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', function() {
+            if (checkbox && checkbox.checked) {
+                localStorage.setItem('skyline_terms_accepted', 'true');
+                localStorage.setItem('skyline_terms_date', new Date().toISOString());
+                if (popup) {
+                    popup.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+    }
+    
+    // Decline button click
+    if (declineBtn) {
+        declineBtn.addEventListener('click', function() {
+            alert('You must accept the Terms & Conditions to use this website.');
+            // Optional: redirect to Google
+            // window.location.href = 'https://www.google.com';
+        });
+    }
+    
+    // Terms link click
+    var termsLink = document.getElementById('tcTermsLink');
+    if (termsLink) {
+        termsLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Full Terms & Conditions available upon request. Email skylineitcloud@gmail.com for details.');
+        });
+    }
+    
+    // Privacy link click
+    var privacyLink = document.getElementById('tcPrivacyLink');
+    if (privacyLink) {
+        privacyLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Privacy Policy: We only collect essential information to provide our services. Your data is never shared. Full policy available on request.');
+        });
+    }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — Skyline IT & Cloud</title>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 64px;
+  margin-top: 48px;
+  align-items: start;
+}
+
+.contact-info h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--pu900);
+  margin-bottom: 12px;
+}
+
+.contact-info p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.contact-icon {
+  width: 40px; height: 40px;
+  background: var(--pu50);
+  border: 1px solid var(--pu100);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-detail-text .label {
+  font-size: 11px;
+  color: var(--pu400);
+  letter-spacing: 1px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.contact-detail-text .value {
+  font-size: 14px;
+  color: var(--pu900);
+  font-weight: 500;
+}
+
+.response-badge {
+  background: var(--pu50);
+  border: 1px solid var(--pu100);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 32px;
+}
+
+.response-badge h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--pu900);
+  margin-bottom: 6px;
+}
+
+.response-badge p { font-size: 13px; color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+.form-card {
+  background: white;
+  border: 1px solid var(--pu100);
+  border-radius: 20px;
+  padding: 40px 36px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-group { margin-bottom: 16px; }
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 7px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--pu100);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--text);
+  background: white;
+  font-family: 'DM Sans', sans-serif;
+  transition: border-color 0.15s;
+  appearance: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--pu600);
+  box-shadow: 0 0 0 3px rgba(83,74,183,0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 110px;
+  line-height: 1.6;
+}
+
+.budget-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.budget-option {
+  border: 1px solid var(--pu100);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: center;
+  user-select: none;
+}
+
+.budget-option:hover,
+.budget-option.selected {
+  border-color: var(--pu600);
+  background: var(--pu50);
+  color: var(--pu800);
+  font-weight: 500;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--pu600);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  font-family: 'DM Sans', sans-serif;
+  margin-top: 8px;
+}
+
+.submit-btn:hover { background: var(--pu800); transform: translateY(-1px); }
+
+.submit-btn.loading { opacity: 0.7; cursor: not-allowed; }
+
+.success-msg {
+  display: none;
+  background: #EAF3DE;
+  border: 1px solid #97C459;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.success-msg h4 { font-size: 15px; font-weight: 700; color: #27500A; margin-bottom: 6px; }
+.success-msg p { font-size: 13px; color: #3B6D11; }
+
+.plan-preselect {
+  background: var(--pu50);
+  border: 1px solid var(--pu200);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--pu800);
+  margin-bottom: 20px;
+  display: none;
+}
+
+.plan-preselect strong { color: var(--pu900); }
+
+.packages-strip {
+  background: var(--pu50);
+  border-top: 1px solid var(--pu100);
+  border-bottom: 1px solid var(--pu100);
+  padding: 40px 48px;
+}
+
+.packages-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.pkg-mini {
+  text-align: center;
+  flex: 1;
+  min-width: 160px;
+  padding: 20px;
+  background: white;
+  border: 1px solid var(--pu100);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.15s;
+  text-decoration: none;
+}
+
+.pkg-mini:hover { border-color: var(--pu400); transform: translateY(-2px); }
+.pkg-mini-name { font-size: 14px; font-weight: 700; color: var(--pu900); margin-bottom: 4px; font-family: 'Syne', sans-serif; }
+.pkg-mini-price { font-size: 20px; font-weight: 800; color: var(--pu600); font-family: 'Syne', sans-serif; }
+.pkg-mini-period { font-size: 11px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-icon">
+      <svg width="20" height="20" viewBox="0 0 20 20"><rect x="8.5" y="11" width="3" height="7" rx="1" fill="#534AB7"/><rect x="7" y="8" width="6" height="4" rx="1" fill="#7F77DD"/><rect x="9" y="3" width="2" height="6" rx="1" fill="#AFA9EC"/><path d="M6 6 Q3 5 6 4" fill="none" stroke="#7F77DD" stroke-width="1.2" stroke-linecap="round"/><path d="M14 6 Q17 5 14 4" fill="none" stroke="#7F77DD" stroke-width="1.2" stroke-linecap="round"/></svg>
+    </div>
+    <div>
+      <div class="logo-text">Skyline IT & Cloud</div>
+      <div class="logo-tagline">WEB · APPS · E-COMMERCE</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Get a quote</a>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-eyebrow">Let's talk</div>
+  <h1>Start your project today</h1>
+  <p>Tell us about your business and what you need. We'll get back to you within 24 hours with a tailored proposal — no strings attached.</p>
+</div>
+
+<div class="packages-strip">
+  <div class="packages-inner">
+    <div style="flex-shrink:0">
+      <div class="section-label" style="margin-bottom:4px">Quick start</div>
+      <div style="font-size:14px;font-weight:500;color:var(--pu900)">Or choose a package to enquire about:</div>
+    </div>
+    <a href="contact.html?plan=launch" class="pkg-mini">
+      <div class="pkg-mini-name">Launch</div>
+      <div class="pkg-mini-price">R2,500</div>
+      <div class="pkg-mini-period">once-off</div>
+    </a>
+    <a href="contact.html?plan=growth" class="pkg-mini">
+      <div class="pkg-mini-name">Growth</div>
+      <div class="pkg-mini-price">R7,500</div>
+      <div class="pkg-mini-period">once-off</div>
+    </a>
+    <a href="contact.html?plan=scale" class="pkg-mini">
+      <div class="pkg-mini-name">Scale</div>
+      <div class="pkg-mini-price">R18,000</div>
+      <div class="pkg-mini-period">once-off</div>
+    </a>
+    <a href="pricing.html" class="btn-outline" style="white-space:nowrap;flex-shrink:0">See all pricing →</a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="contact-layout">
+    <div class="contact-info">
+      <h3>We'd love to hear from you</h3>
+      <p>Whether you know exactly what you need or you're just starting to explore, we're here to help. No hard sell — just a real conversation about how we can help your business grow online.</p>
+
+      <div class="contact-detail">
+        <div class="contact-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18"><path d="M3 3h12c.6 0 1 .4 1 1v10c0 .6-.4 1-1 1H3c-.6 0-1-.4-1-1V4c0-.6.4-1 1-1z" fill="none" stroke="#534AB7" stroke-width="1.5"/><path d="M2 4l7 6 7-6" fill="none" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <div class="label">Email</div>
+          <div class="value">skylineitcloud@gmail.com</div>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18"><path d="M4 2h3l1.5 4L7 7.5c1 2 3 4 5 5L13.5 11 17 12.5v3c0 .6-.4 1-1 1C5 16.5 1.5 6 2 3c0-.6.4-1 1-1h1z" fill="none" stroke="#534AB7" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <div class="label">WhatsApp</div>
+          <div class="value">+27 66 091 2946</div>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="7" r="3" fill="none" stroke="#534AB7" stroke-width="1.5"/><path d="M3 16c0-3.3 2.7-6 6-6s6 2.7 6 6" fill="none" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <div class="label">Location</div>
+          <div class="value">Durban, South Africa</div>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="contact-icon">
+          <svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="7" fill="none" stroke="#534AB7" stroke-width="1.5"/><path d="M9 5v4l3 2" fill="none" stroke="#534AB7" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <div class="label">Response time</div>
+          <div class="value">Within 24 hours</div>
+        </div>
+      </div>
+
+      <div class="response-badge">
+        <h4>Free consultation included</h4>
+        <p>Every enquiry includes a free 30-minute discovery call where we learn about your business and recommend the best solution — no commitment required.</p>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <div id="plan-preselect" class="plan-preselect"></div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>First name *</label>
+          <input type="text" id="fname" placeholder="e.g. Thabo" required/>
+        </div>
+        <div class="form-group">
+          <label>Last name *</label>
+          <input type="text" id="lname" placeholder="e.g. Mokoena" required/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Email address *</label>
+        <input type="email" id="email" placeholder="you@example.com" required/>
+      </div>
+
+      <div class="form-group">
+        <label>Phone / WhatsApp (optional)</label>
+        <input type="tel" id="phone" placeholder="+27 ..."/>
+      </div>
+
+      <div class="form-group">
+        <label>Business name (optional)</label>
+        <input type="text" id="biz" placeholder="Your company name"/>
+      </div>
+
+      <div class="form-group">
+        <label>Service you need *</label>
+        <select id="service">
+          <option value="">Select a service...</option>
+          <option value="website">Website design & development</option>
+          <option value="ecommerce">E-commerce store</option>
+          <option value="app">Mobile app development</option>
+          <option value="seo">SEO & brand promotion</option>
+          <option value="hosting">Cloud hosting & setup</option>
+          <option value="social">Social media & content</option>
+          <option value="full">Full package (Scale)</option>
+          <option value="unsure">Not sure — help me decide</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Approximate budget</label>
+        <div class="budget-options">
+          <div class="budget-option" onclick="selectBudget(this, 'under5k')">Under R5,000</div>
+          <div class="budget-option" onclick="selectBudget(this, '5k-10k')">R5,000 – R10,000</div>
+          <div class="budget-option" onclick="selectBudget(this, '10k-20k')">R10,000 – R20,000</div>
+          <div class="budget-option" onclick="selectBudget(this, '20k+')">R20,000+</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Tell us about your project *</label>
+        <textarea id="message" placeholder="What does your business do? What are you looking to achieve online? Any deadlines or specific requirements?"></textarea>
+      </div>
+
+      <button class="submit-btn" id="submit-btn" onclick="submitForm()">Send enquiry</button>
+
+      <div class="success-msg" id="success-msg">
+        <h4>Enquiry received!</h4>
+        <p>Thank you — we'll be in touch within 24 hours with a personalised response. Check your email for a confirmation.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">
+        <div class="logo-icon"><svg width="20" height="20" viewBox="0 0 20 20"><rect x="8.5" y="11" width="3" height="7" rx="1" fill="#534AB7"/><rect x="7" y="8" width="6" height="4" rx="1" fill="#7F77DD"/><rect x="9" y="3" width="2" height="6" rx="1" fill="#AFA9EC"/></svg></div>
+        <div><div class="logo-text">Skyline IT & Cloud</div><div class="logo-tagline">WEB · APPS · E-COMMERCE</div></div>
+      </div>
+      <p>Affordable digital solutions for every South African business, founded in 2025.</p>
+    </div>
+    <div class="footer-col"><h4>Pages</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li></ul></div>
+    <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Website Design</a></li><li><a href="services.html">E-Commerce</a></li><li><a href="services.html">App Development</a></li><li><a href="services.html">SEO & Promotion</a></li></ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul><li><a href="contact.html">Get a quote</a></li><li><a href="mailto:skylineitcloud@gmail.com">skylineitcloud@gmail.com</a></li><li><a href="#">Durban, SA</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Skyline IT & Cloud. Founded at Rosebank College, Durban.</p>
+    <p>IT in Business Systems · Serving South Africa & beyond</p>
+  </div>
+</footer>
+
+<script>
+let selectedBudget = '';
+
+function selectBudget(el, val) {
+  document.querySelectorAll('.budget-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedBudget = val;
+}
+
+const planLabels = {
+  launch: 'Launch package — R2,500 once-off',
+  growth: 'Growth package — R7,500 once-off',
+  scale: 'Scale package — R18,000 once-off'
+};
+
+const serviceMap = {
+  launch: 'website',
+  growth: 'ecommerce',
+  scale: 'full'
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+  const plan = params.get('plan');
+  if (plan && planLabels[plan]) {
+    const bar = document.getElementById('plan-preselect');
+    bar.style.display = 'block';
+    bar.innerHTML = `Enquiring about: <strong>${planLabels[plan]}</strong>`;
+    const svc = document.getElementById('service');
+    if (serviceMap[plan]) svc.value = serviceMap[plan];
+  }
+});
+
+function submitForm() {
+  const fname = document.getElementById('fname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const service = document.getElementById('service').value;
+  const message = document.getElementById('message').value.trim();
+
+  if (!fname || !email || !service || !message) {
+    alert('Please fill in all required fields (marked with *).');
+    return;
+  }
+
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = 'Sending...';
+  btn.classList.add('loading');
+
+  setTimeout(() => {
+    btn.style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+  }, 1200);
+}
+</script>
+<!-- Terms & Conditions Popup -->
+<div id="tcPopup" style="display: none;">
+    <div class="tc-modal-overlay">
+        <div class="tc-modal-container">
+            <div class="tc-modal-header">
+                <div class="tc-modal-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#534AB7" stroke-width="1.8">
+                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke-linecap="round"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                </div>
+                <h3>Welcome to Skyline IT & Cloud</h3>
+            </div>
+            <div class="tc-modal-body">
+                <p>Please review and accept our Terms & Conditions to continue.</p>
+                <div class="tc-terms-scroll">
+                    <h4>📋 Terms of Service</h4>
+                    <p>By using our services, you agree to the following terms. Skyline IT & Cloud provides website design, e-commerce development, app development, SEO, and cloud hosting services.</p>
+                    
+                    <h4>💰 Payment Terms</h4>
+                    <p>All projects require a 50% deposit before work begins. The remaining 50% is due upon completion. Monthly services require payment at the start of each month.</p>
+                    
+                    <h4>🔄 Refund Policy</h4>
+                    <p>Deposits are non-refundable once work has commenced. If we fail to deliver as agreed, a full refund of deposit will be issued.</p>
+                    
+                    <h4>📄 Intellectual Property</h4>
+                    <p>Upon full payment, you own all rights to the delivered work. We reserve the right to display the work in our portfolio.</p>
+                    
+                    <h4>⚠️ Limitation of Liability</h4>
+                    <p>Skyline IT & Cloud is not liable for indirect damages or third-party claims. Our total liability is limited to the amount paid for the service.</p>
+                    
+                    <h4>🔒 Privacy Policy</h4>
+                    <p>We collect only necessary information to provide our services. Your data is never sold to third parties. We use SSL encryption to protect your information.</p>
+                    
+                    <h4>⚖️ Governing Law</h4>
+                    <p>These terms are governed by the laws of South Africa. Disputes will be resolved in Durban, South Africa.</p>
+                </div>
+                <label class="tc-checkbox-container">
+					<input type="checkbox" id="tcAgreeCheckbox">
+					<span>I have read and agree to the <a href="terms.html" id="tcTermsLink">Terms & Conditions</a> and <a href="privacy.html" id="tcPrivacyLink">Privacy Policy</a></span>
+				</label>
+            </div>
+            <div class="tc-modal-buttons">
+                <button class="tc-btn-outline" id="tcDeclineBtn">Decline</button>
+                <button class="tc-btn-primary" id="tcAcceptBtn" disabled>Accept & Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    // Check if user already accepted
+    if (!localStorage.getItem('skyline_terms_accepted')) {
+        // Show popup after 0.5 seconds
+        setTimeout(function() {
+            var popup = document.getElementById('tcPopup');
+            if (popup) {
+                popup.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }, 500);
+    }
+    
+    // Get elements
+    var checkbox = document.getElementById('tcAgreeCheckbox');
+    var acceptBtn = document.getElementById('tcAcceptBtn');
+    var declineBtn = document.getElementById('tcDeclineBtn');
+    var popup = document.getElementById('tcPopup');
+    
+    // Enable accept button when checkbox is checked
+    if (checkbox) {
+        checkbox.addEventListener('change', function() {
+            if (acceptBtn) {
+                acceptBtn.disabled = !this.checked;
+            }
+        });
+    }
+    
+    // Accept button click
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', function() {
+            if (checkbox && checkbox.checked) {
+                localStorage.setItem('skyline_terms_accepted', 'true');
+                localStorage.setItem('skyline_terms_date', new Date().toISOString());
+                if (popup) {
+                    popup.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+    }
+    
+    // Decline button click
+    if (declineBtn) {
+        declineBtn.addEventListener('click', function() {
+            alert('You must accept the Terms & Conditions to use this website.');
+            // Optional: redirect to Google
+            // window.location.href = 'https://www.google.com';
+        });
+    }
+    
+    // Terms link click
+    var termsLink = document.getElementById('tcTermsLink');
+    if (termsLink) {
+        termsLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Full Terms & Conditions available upon request. Email skylineitcloud@gmail.com for details.');
+        });
+    }
+    
+    // Privacy link click
+    var privacyLink = document.getElementById('tcPrivacyLink');
+    if (privacyLink) {
+        privacyLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Privacy Policy: We only collect essential information to provide our services. Your data is never shared. Full policy available on request.');
+        });
+    }
+})();
+</script>
+</body>
+</html>
