@@ -656,3 +656,30 @@ footer {
     box-shadow: none !important;
   }
 }
+
+.service-card {
+  position: relative;
+}
+
+.coming-soon-overlay {
+  position: absolute;
+  inset: 0;                        /* covers the full card */
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: inherit;          /* matches the card's rounded corners */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  backdrop-filter: blur(2px);
+}
+
+.coming-soon-overlay span {
+  background: #4f46e5;             /* indigo to match your card's purple */
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 999px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
