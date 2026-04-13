@@ -524,3 +524,90 @@ footer {
     background: var(--pu50);
     border-color: var(--pu600);
 }
+/* ================================
+   MEDIA QUERIES — ALL DEVICES
+   ================================ */
+
+/* Large Desktops (1440px and up) */
+@media (min-width: 1440px) {
+
+}
+
+/* Desktops */
+@media (max-width: 1440px) {
+
+}
+
+/* Small Desktops / Large Laptops */
+@media (max-width: 1280px) {
+
+}
+
+/* Laptops */
+@media (max-width: 1024px) {
+
+}
+
+/* Tablets (landscape) */
+@media (max-width: 900px) {
+
+}
+
+/* Tablets (portrait) */
+@media (max-width: 768px) {
+
+}
+
+/* Large Phones */
+@media (max-width: 600px) {
+
+}
+
+/* Medium Phones */
+@media (max-width: 480px) {
+
+}
+
+/* Small Phones */
+@media (max-width: 375px) {
+
+}
+
+/* Extra Small Phones (e.g. iPhone SE) */
+@media (max-width: 320px) {
+
+}
+
+/* ================================
+   ORIENTATION
+   ================================ */
+
+/* Landscape mode */
+@media (orientation: landscape) {
+
+}
+
+/* Portrait mode */
+@media (orientation: portrait) {
+
+}
+
+/* ================================
+   HIGH RESOLUTION / RETINA
+   ================================ */
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+
+}
+
+/* ================================
+   PRINT
+   ================================ */
+
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+}
