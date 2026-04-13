@@ -346,70 +346,76 @@
     </div>
 
     <div class="form-card">
-      <div id="plan-preselect" class="plan-preselect"></div>
+      <form action="https://formspree.io/f/mgoreezl" method="POST" id="contactForm" onsubmit="return validateForm()">
+        <input type="hidden" name="_subject" value="New enquiry from Skyline IT & Cloud">
+        <input type="hidden" name="_replyto" value="email">
+        <input type="hidden" name="budget" id="budget-hidden">
 
-      <div class="form-row">
+        <div id="plan-preselect" class="plan-preselect"></div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>First name *</label>
+            <input type="text" name="fname" id="fname" placeholder="e.g. Thabo" required/>
+          </div>
+          <div class="form-group">
+            <label>Last name *</label>
+            <input type="text" name="lname" id="lname" placeholder="e.g. Mokoena" required/>
+          </div>
+        </div>
+
         <div class="form-group">
-          <label>First name *</label>
-          <input type="text" id="fname" placeholder="e.g. Thabo" required/>
+          <label>Email address *</label>
+          <input type="email" name="email" id="email" placeholder="you@example.com" required/>
         </div>
+
         <div class="form-group">
-          <label>Last name *</label>
-          <input type="text" id="lname" placeholder="e.g. Mokoena" required/>
+          <label>Phone / WhatsApp (optional)</label>
+          <input type="tel" name="phone" id="phone" placeholder="+27 ..."/>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label>Email address *</label>
-        <input type="email" id="email" placeholder="you@example.com" required/>
-      </div>
-
-      <div class="form-group">
-        <label>Phone / WhatsApp (optional)</label>
-        <input type="tel" id="phone" placeholder="+27 ..."/>
-      </div>
-
-      <div class="form-group">
-        <label>Business name (optional)</label>
-        <input type="text" id="biz" placeholder="Your company name"/>
-      </div>
-
-      <div class="form-group">
-        <label>Service you need *</label>
-        <select id="service">
-          <option value="">Select a service...</option>
-          <option value="website">Website design & development</option>
-          <option value="ecommerce">E-commerce store</option>
-          <option value="app">Mobile app development</option>
-          <option value="seo">SEO & brand promotion</option>
-          <option value="hosting">Cloud hosting & setup</option>
-          <option value="social">Social media & content</option>
-          <option value="full">Full package (Scale)</option>
-          <option value="unsure">Not sure — help me decide</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label>Approximate budget</label>
-        <div class="budget-options">
-          <div class="budget-option" onclick="selectBudget(this, 'under5k')">Under R5,000</div>
-          <div class="budget-option" onclick="selectBudget(this, '5k-10k')">R5,000 – R10,000</div>
-          <div class="budget-option" onclick="selectBudget(this, '10k-20k')">R10,000 – R20,000</div>
-          <div class="budget-option" onclick="selectBudget(this, '20k+')">R20,000+</div>
+        <div class="form-group">
+          <label>Business name (optional)</label>
+          <input type="text" name="biz" id="biz" placeholder="Your company name"/>
         </div>
-      </div>
 
-      <div class="form-group">
-        <label>Tell us about your project *</label>
-        <textarea id="message" placeholder="What does your business do? What are you looking to achieve online? Any deadlines or specific requirements?"></textarea>
-      </div>
+        <div class="form-group">
+          <label>Service you need *</label>
+          <select name="service" id="service">
+            <option value="">Select a service...</option>
+            <option value="website">Website design & development</option>
+            <option value="ecommerce">E-commerce store</option>
+            <option value="app">Mobile app development</option>
+            <option value="seo">SEO & brand promotion</option>
+            <option value="hosting">Cloud hosting & setup</option>
+            <option value="social">Social media & content</option>
+            <option value="full">Full package (Scale)</option>
+            <option value="unsure">Not sure — help me decide</option>
+          </select>
+        </div>
 
-      <button class="submit-btn" id="submit-btn" onclick="submitForm()">Send enquiry</button>
+        <div class="form-group">
+          <label>Approximate budget</label>
+          <div class="budget-options">
+            <div class="budget-option" onclick="selectBudget(this, 'under5k')">Under R5,000</div>
+            <div class="budget-option" onclick="selectBudget(this, '5k-10k')">R5,000 – R10,000</div>
+            <div class="budget-option" onclick="selectBudget(this, '10k-20k')">R10,000 – R20,000</div>
+            <div class="budget-option" onclick="selectBudget(this, '20k+')">R20,000+</div>
+          </div>
+        </div>
 
-      <div class="success-msg" id="success-msg">
-        <h4>Enquiry received!</h4>
-        <p>Thank you — we'll be in touch within 24 hours with a personalised response. Check your email for a confirmation.</p>
-      </div>
+        <div class="form-group">
+          <label>Tell us about your project *</label>
+          <textarea name="message" id="message" placeholder="What does your business do? What are you looking to achieve online? Any deadlines or specific requirements?"></textarea>
+        </div>
+
+        <button class="submit-btn" id="submit-btn" type="submit">Send enquiry</button>
+
+        <div class="success-msg" id="success-msg">
+          <h4>Enquiry received!</h4>
+          <p>Thank you — we'll be in touch within 24 hours with a personalised response. Check your email for a confirmation.</p>
+        </div>
+      </form>
     </div>
   </div>
 </div>
@@ -440,6 +446,7 @@ function selectBudget(el, val) {
   document.querySelectorAll('.budget-option').forEach(o => o.classList.remove('selected'));
   el.classList.add('selected');
   selectedBudget = val;
+  document.getElementById('budget-hidden').value = val;
 }
 
 const planLabels = {
@@ -464,9 +471,14 @@ window.addEventListener('DOMContentLoaded', () => {
     const svc = document.getElementById('service');
     if (serviceMap[plan]) svc.value = serviceMap[plan];
   }
+
+  if (params.get('success')) {
+    document.getElementById('submit-btn').style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+  }
 });
 
-function submitForm() {
+function validateForm() {
   const fname = document.getElementById('fname').value.trim();
   const email = document.getElementById('email').value.trim();
   const service = document.getElementById('service').value;
@@ -474,17 +486,10 @@ function submitForm() {
 
   if (!fname || !email || !service || !message) {
     alert('Please fill in all required fields (marked with *).');
-    return;
+    return false;
   }
 
-  const btn = document.getElementById('submit-btn');
-  btn.textContent = 'Sending...';
-  btn.classList.add('loading');
-
-  setTimeout(() => {
-    btn.style.display = 'none';
-    document.getElementById('success-msg').style.display = 'block';
-  }, 1200);
+  return true;
 }
 </script>
 <!-- Terms & Conditions Popup -->
