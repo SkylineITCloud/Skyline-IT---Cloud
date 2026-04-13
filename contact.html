@@ -417,22 +417,92 @@
       </div>
     </div>
 
-    <div class="form-card">
-      <form action="https://formspree.io/f/mgoreezl" method="POST">
-        <label>
-          Your email:
-          <input type="email" name="email">
-        </label>
-        <label>
-          Your message:
-          <textarea name="message"></textarea>
-        </label>
-        <!-- your other form fields go here -->
-        <button type="submit">Send</button>
-      </form>
-    </div>
-  </div>
-</div>
+    <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <h2>Send Us a Message</h2>
+                        
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Your Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="ui-ux-design">UI/UX Design</option>
+                                <option value="mobile-app">Mobile App Development</option>
+                                <option value="brand-identity">Brand Identity</option>
+                                <option value="backend">Backend & Infrastructure</option>
+                                <option value="consulting">Strategy & Consulting</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="budget">Project Budget</label>
+                            <select id="budget" name="budget">
+                                <option value="">Select a range</option>
+                                <option value="5k-10k">$5,000 - $10,000</option>
+                                <option value="10k-25k">$10,000 - $25,000</option>
+                                <option value="25k-50k">$25,000 - $50,000</option>
+                                <option value="50k-100k">$50,000 - $100,000</option>
+                                <option value="100k+">$100,000+</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Project Details *</label>
+                            <textarea id="message" name="message" required rows="6" placeholder="Tell us about your project..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>How long does a typical project take?</h3>
+                    <p>Project timelines vary based on scope and complexity. A simple website might take 4-6 weeks, while a complex web application could take 3-6 months. We provide detailed timelines during our discovery phase.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What is your development process?</h3>
+                    <p>We follow an agile methodology with regular sprints and check-ins. You'll be involved throughout the process with weekly updates and demos, ensuring the final product matches your vision.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do you provide ongoing support?</h3>
+                    <p>Absolutely! We offer various support and maintenance packages to keep your digital products running smoothly. This includes bug fixes, updates, security patches, and feature enhancements.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What technologies do you work with?</h3>
+                    <p>We specialize in modern web technologies including React, Vue, Next.js, Node.js, and various mobile frameworks like React Native and Flutter. We choose the best tech stack for each project's specific needs.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can you work with our existing team?</h3>
+                    <p>Yes! We frequently collaborate with in-house teams, whether you need us to augment your existing resources or take full ownership of a project. We're flexible and adapt to your workflow.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What's your payment structure?</h3>
+                    <p>We typically work with milestone-based payments. After an initial deposit, payments are tied to project phases and deliverables. We're transparent about costs from the start with detailed proposals.</p>
+                </div>
+            </div>
+        </section>
+
 
 <footer>
   <div class="footer-inner">
