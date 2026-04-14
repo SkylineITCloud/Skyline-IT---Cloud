@@ -171,6 +171,101 @@
 
 .cta-strip .btn-primary { background: var(--pu400); font-size: 15px; padding: 15px 36px; }
 .cta-strip .btn-primary:hover { background: var(--pu200); color: var(--pu900); }
+
+@media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .trust-bar {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 24px;
+    min-height: auto;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero p {
+    font-size: 16px;
+    max-width: 100%;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-btns .btn-outline {
+    width: 100%;
+    text-align: center;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .svc-card {
+    padding: 24px 20px;
+  }
+
+  .home-services {
+    padding: 60px 24px;
+  }
+
+  .cta-strip {
+    padding: 48px 24px;
+  }
+
+  .cta-strip h2 {
+    font-size: 28px;
+  }
+
+  .cta-strip p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 48px 20px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero-badge {
+    font-size: 11px;
+    padding: 5px 12px;
+  }
+
+  .trust-bar {
+    padding: 20px 20px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    font-size: 12px;
+  }
+
+  .home-services {
+    padding: 48px 20px;
+  }
+
+  .cta-strip {
+    padding: 40px 20px;
+  }
+}
 </style>
 </head>
 <body>
