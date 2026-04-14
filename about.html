@@ -163,54 +163,6 @@
 
 .team-inner { max-width: 1100px; margin: 0 auto; }
 
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  margin-top: 40px;
-}
-
-.team-card {
-  background: white;
-  border: 1px solid var(--pu100);
-  border-radius: 16px;
-  padding: 32px 24px;
-  text-align: center;
-  transition: border-color 0.2s, transform 0.2s;
-}
-
-.team-card:hover { border-color: var(--pu400); transform: translateY(-2px); }
-
-.team-avatar {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin: 0 auto 16px;
-  border: 2px solid var(--pu200);
-}
-
-.team-card h3 {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--pu900);
-  margin-bottom: 6px;
-}
-
-.team-role {
-  font-size: 13px;
-  color: var(--pu600);
-  font-weight: 500;
-  margin-bottom: 12px;
-}
-
-.team-bio {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 0;
-}
-
 @media (max-width: 900px) {
   .about-grid {
     grid-template-columns: 1fr;
@@ -222,10 +174,6 @@
   }
 
   .values-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .team-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -269,11 +217,6 @@
 
   .team-section {
     padding: 60px 24px;
-  }
-
-  .team-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
   }
 }
 
@@ -326,19 +269,6 @@
 
   .team-section {
     padding: 40px 20px;
-  }
-
-  .team-card {
-    padding: 24px 18px;
-  }
-
-  .team-avatar {
-    width: 140px;
-    height: 140px;
-  }
-
-  .team-card h3 {
-    font-size: 16px;
   }
 }
 </style>
@@ -404,26 +334,82 @@
     <div class="section-label">Our team</div>
     <h2>Built by talented South Africans</h2>
     <p class="section-sub">A small, dedicated group working to make world-class digital services accessible to every business.</p>
-    <div class="team-grid">
-      <div class="team-card">
-        <img src="images/placeholder.jpg" alt="Team Member Name" class="team-avatar">
-        <h3>Team Member Name</h3>
-        <p class="team-role">Developer / Designer</p>
-        <p class="team-bio">Skilled in building responsive web experiences and creating intuitive user interfaces.</p>
+
+    <!-- OG Profile -->
+    <div class="about-grid" style="margin-top: 48px;">
+      <div class="about-visual">
+        <img src="images/placeholder.jpg" alt="OG - Lead Web & App Developer" class="avatar">
+        <h3>OG</h3>
+        <p class="role">Lead Web & App Developer</p>
+        <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--pu100)">
+          <div style="font-size:13px;color:var(--text-muted);margin-bottom:8px">Specialization: Web & Apps</div>
+          <div style="font-size:13px;color:var(--text-muted)">Based in Durban, SA</div>
+        </div>
       </div>
-      <div class="team-card">
-        <img src="images/placeholder.jpg" alt="Team Member Name" class="team-avatar">
-        <h3>Team Member Name</h3>
-        <p class="team-role">Full Stack Developer</p>
-        <p class="team-bio">Specializes in robust backend systems and scalable web applications for growing businesses.</p>
-      </div>
-      <div class="team-card">
-        <img src="images/placeholder.jpg" alt="Team Member Name" class="team-avatar">
-        <h3>Team Member Name</h3>
-        <p class="team-role">Digital Strategist</p>
-        <p class="team-bio">Drives business growth through smart digital strategy, SEO, and data-driven marketing.</p>
+      <div class="about-text">
+        <div class="section-label">Developer Lead</div>
+        <h2>Bringing Ideas to Life with Code</h2>
+        <p>OG is the technical backbone of Skyline IT & Cloud. Specializing in full-stack web and mobile development, they build responsive, performant applications that solve real business problems.</p>
+        <p><strong>Key responsibilities:</strong></p>
+        <ul style="font-size:14px;color:var(--text-muted);line-height:1.8;margin:16px 0;padding-left:20px;">
+          <li>Builds all websites and apps (HTML/CSS/JS)</li>
+          <li>Handles GitHub repository management & deployments</li>
+          <li>Sets up and manages cloud hosting infrastructure</li>
+          <li>Resolves bugs and provides ongoing technical support</li>
+        </ul>
       </div>
     </div>
+
+    <!-- Sno Profile -->
+    <div class="about-grid" style="margin-top: 64px;">
+      <div class="about-visual">
+        <img src="images/placeholder.jpg" alt="Sno - E-Commerce & Backend Specialist" class="avatar">
+        <h3>Sno</h3>
+        <p class="role">E-Commerce & Backend Specialist</p>
+        <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--pu100)">
+          <div style="font-size:13px;color:var(--text-muted);margin-bottom:8px">Specialization: E-Commerce & Backend</div>
+          <div style="font-size:13px;color:var(--text-muted)">Based in Durban, SA</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-label">E-Commerce Specialist</div>
+        <h2>Turning Businesses into Online Powerhouses</h2>
+        <p>Sno transforms brick-and-mortar businesses into thriving e-commerce operations. With expertise in platform setup, payment integration, and backend architecture, they ensure every online store runs smoothly and securely.</p>
+        <p><strong>Key responsibilities:</strong></p>
+        <ul style="font-size:14px;color:var(--text-muted);line-height:1.8;margin:16px 0;padding-left:20px;">
+          <li>Sets up online shops (Shopify, WooCommerce, and custom solutions)</li>
+          <li>Integrates payment gateways and financial systems</li>
+          <li>Builds product management and inventory systems</li>
+          <li>Develops backend logic, databases, and server infrastructure</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Fats Profile -->
+    <div class="about-grid" style="margin-top: 64px;">
+      <div class="about-visual">
+        <img src="images/placeholder.jpg" alt="Fats - Designer & Marketing Lead" class="avatar">
+        <h3>Fats</h3>
+        <p class="role">Designer & Marketing Lead</p>
+        <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--pu100)">
+          <div style="font-size:13px;color:var(--text-muted);margin-bottom:8px">Specialization: Design & Marketing</div>
+          <div style="font-size:13px;color:var(--text-muted)">Based in Durban, SA</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-label">Creative Director</div>
+        <h2>Design That Engages, Strategy That Converts</h2>
+        <p>Fats crafts beautiful, user-centric digital experiences while driving business growth through strategic marketing. They bridge the gap between stunning design and measurable results.</p>
+        <p><strong>Key responsibilities:</strong></p>
+        <ul style="font-size:14px;color:var(--text-muted);line-height:1.8;margin:16px 0;padding-left:20px;">
+          <li>Creates UI/UX designs (Figma, wireframes, prototypes)</li>
+          <li>Optimizes SEO for organic search visibility</li>
+          <li>Manages social media content and campaigns</li>
+          <li>Develops brand identity, graphics, and visual assets</li>
+        </ul>
+      </div>
+    </div>
+
   </div>
 </div>
 
