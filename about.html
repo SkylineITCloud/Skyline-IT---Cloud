@@ -155,6 +155,62 @@
 .cta-strip h2 { font-size: 32px; font-weight: 800; color: var(--pu900); letter-spacing: -0.5px; margin-bottom: 12px; }
 .cta-strip p { font-size: 15px; color: var(--text-muted); margin-bottom: 28px; }
 
+.team-section {
+  padding: 72px 48px;
+  background: white;
+  border-top: 1px solid var(--pu100);
+}
+
+.team-inner { max-width: 1100px; margin: 0 auto; }
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.team-card {
+  background: white;
+  border: 1px solid var(--pu100);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.team-card:hover { border-color: var(--pu400); transform: translateY(-2px); }
+
+.team-avatar {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 0 auto 16px;
+  border: 2px solid var(--pu200);
+}
+
+.team-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--pu900);
+  margin-bottom: 6px;
+}
+
+.team-role {
+  font-size: 13px;
+  color: var(--pu600);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.team-bio {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
 @media (max-width: 900px) {
   .about-grid {
     grid-template-columns: 1fr;
@@ -166,6 +222,10 @@
   }
 
   .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -205,6 +265,15 @@
 
   .cta-strip {
     padding: 48px 24px;
+  }
+
+  .team-section {
+    padding: 60px 24px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 }
 
@@ -254,6 +323,23 @@
   .cta-strip h2 {
     font-size: 28px;
   }
+
+  .team-section {
+    padding: 40px 20px;
+  }
+
+  .team-card {
+    padding: 24px 18px;
+  }
+
+  .team-avatar {
+    width: 140px;
+    height: 140px;
+  }
+
+  .team-card h3 {
+    font-size: 16px;
+  }
 }
 </style>
 </head>
@@ -290,7 +376,7 @@
     <div class="about-visual">
       <img src="images/me.jpg" alt="S'nqobile Langa Hlatshwayo" class="avatar">
       <h3>S'nqobile Langa Hlatshwayo</h3>
-      <p class="role">Founder & Lead Developer</p>
+      <p class="role">Founder & Project Manager</p>
       <div class="institution">Rosebank College Current Student — IT in Business Systems</div>
       <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--pu100)">
         <div style="font-size:13px;color:var(--text-muted);margin-bottom:8px">Based in Durban, SA</div>
@@ -308,6 +394,34 @@
         <div class="stat-card"><div class="stat-num">2025</div><div class="stat-label">Year founded</div></div>
         <div class="stat-card"><div class="stat-num">6+</div><div class="stat-label">Services offered</div></div>
         <div class="stat-card"><div class="stat-num">100%</div><div class="stat-label">Client satisfaction goal</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="team-section">
+  <div class="team-inner">
+    <div class="section-label">Our team</div>
+    <h2>Built by talented South Africans</h2>
+    <p class="section-sub">A small, dedicated group working to make world-class digital services accessible to every business.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="images/placeholder.jpg" alt="Team Member Name" class="team-avatar">
+        <h3>Team Member Name</h3>
+        <p class="team-role">Developer / Designer</p>
+        <p class="team-bio">Skilled in building responsive web experiences and creating intuitive user interfaces.</p>
+      </div>
+      <div class="team-card">
+        <img src="images/placeholder.jpg" alt="Team Member Name" class="team-avatar">
+        <h3>Team Member Name</h3>
+        <p class="team-role">Full Stack Developer</p>
+        <p class="team-bio">Specializes in robust backend systems and scalable web applications for growing businesses.</p>
+      </div>
+      <div class="team-card">
+        <img src="images/placeholder.jpg" alt="Team Member Name" class="team-avatar">
+        <h3>Team Member Name</h3>
+        <p class="team-role">Digital Strategist</p>
+        <p class="team-bio">Drives business growth through smart digital strategy, SEO, and data-driven marketing.</p>
       </div>
     </div>
   </div>
