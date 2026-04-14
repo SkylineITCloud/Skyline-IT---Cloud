@@ -27,6 +27,20 @@ body {
   color: var(--text);
   background: var(--white);
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+html, body {
+  min-width: 320px;
+}
+
+img, svg, video, iframe, embed, object {
+  max-width: 100%;
+  height: auto;
+}
+
+nav {
+  flex-wrap: wrap;
 }
 
 h1, h2, h3, h4, .logo-text, .plan-price, .stat-num {
