@@ -180,6 +180,75 @@
 .cta-strip p { font-size: 15px; color: var(--pu200); margin-bottom: 28px; }
 .cta-strip .btn-primary { background: var(--pu400); font-size: 15px; padding: 14px 34px; }
 .cta-strip .btn-primary:hover { background: var(--pu200); color: var(--pu900); }
+
+@media (max-width: 900px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .addons-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .plan {
+    padding: 28px 24px;
+  }
+
+  .addons-section {
+    padding: 48px 24px;
+  }
+
+  .addons-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .addon {
+    padding: 16px 18px;
+  }
+
+  .cta-strip {
+    padding: 48px 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .pricing-grid {
+    margin-top: 28px;
+  }
+
+  .plan {
+    padding: 24px 20px;
+  }
+
+  .plan h3 {
+    font-size: 20px;
+  }
+
+  .plan-price {
+    font-size: 32px;
+  }
+
+  .addons-section {
+    padding: 40px 20px;
+  }
+
+  .cta-strip {
+    padding: 40px 20px;
+  }
+
+  .cta-strip h2 {
+    font-size: 28px;
+  }
+}
 </style>
 </head>
 <body>
