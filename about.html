@@ -154,6 +154,107 @@
 
 .cta-strip h2 { font-size: 32px; font-weight: 800; color: var(--pu900); letter-spacing: -0.5px; margin-bottom: 12px; }
 .cta-strip p { font-size: 15px; color: var(--text-muted); margin-bottom: 28px; }
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-visual {
+    padding: 32px 24px;
+  }
+
+  .avatar {
+    width: 180px;
+    height: 240px;
+  }
+
+  .about-grid {
+    gap: 40px;
+    margin-top: 36px;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .values-section {
+    padding: 60px 24px;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .mission-section {
+    padding: 48px 24px;
+  }
+
+  .cta-strip {
+    padding: 48px 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-visual {
+    padding: 28px 20px;
+  }
+
+  .avatar {
+    width: 160px;
+    height: 200px;
+  }
+
+  .about-grid {
+    gap: 32px;
+    margin-top: 32px;
+  }
+
+  .stats-row {
+    margin-top: 24px;
+  }
+
+  .stat-card {
+    padding: 16px 12px;
+  }
+
+  .values-section {
+    padding: 48px 20px;
+  }
+
+  .value-card {
+    padding: 24px 20px;
+  }
+
+  .mission-section {
+    padding: 40px 20px;
+  }
+
+  .mission-inner h2 {
+    font-size: 24px;
+  }
+
+  .cta-strip {
+    padding: 40px 20px;
+  }
+
+  .cta-strip h2 {
+    font-size: 28px;
+  }
+}
 </style>
 </head>
 <body>
